@@ -3,7 +3,9 @@ const express = require('express');
 const { Server } = require('socket.io');
 const mongoose = require("mongoose");
 const Document = require("./Document");
-const cors = require("cors")
+const cors = require("cors");
+const path = require('path');
+
 
 const PORT = process.env.PORT || 3001;
 
@@ -25,14 +27,17 @@ app.use(cors());
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
 }
 
 const httpServer = createServer(app);
-httpServer.listen(PORT, ()=>{
+httpServer.listen(PORT, () => {
   console.log(`server is listening on ${PORT}`);
 });
 
-const io = new Server(httpServer, {cors: {origin: "*"}})
+const io = new Server(httpServer, { cors: { origin: "*" } })
 
 const defaultValue = ""
 
