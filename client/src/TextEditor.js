@@ -24,9 +24,10 @@ export default function TextEditor() {
 
   let URL = "http://localhost:3001";
   if (process.env.NODE_ENV === 'production') {
-    URL = `https://google-docs-clone-vibhas-singh.onrender.com:${process.env.PORT}`
+    URL = "https://google-docs-clone-vibhas-singh.onrender.com";
   }
 
+  console.log(URL);
   useEffect(() => {
     const s = io(URL)
     setSocket(s)
