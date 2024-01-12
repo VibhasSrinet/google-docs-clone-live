@@ -22,8 +22,13 @@ export default function TextEditor() {
   const [socket, setSocket] = useState()
   const [quill, setQuill] = useState()
 
+  let URL = "http://localhost:3001";
+  if (process.env.NODE_ENV === 'production') {
+    URL = `https://google-docs-clone-vibhas-singh.onrender.com:${process.env.PORT}`
+  }
+
   useEffect(() => {
-    const s = io("http://localhost:3001")
+    const s = io(URL)
     setSocket(s)
 
     return () => {
