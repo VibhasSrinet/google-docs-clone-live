@@ -11,8 +11,7 @@ const password = encodeURIComponent("MyD@7@8@53");
 
 const PORT = process.env.PORT || 3001;
 
-const URL = process.env.MONGODB_URL || `mongodb+srv://${username}:${password}@cluster0.wdcqnpi.mongodb.net/?retryWrites=true&w=majority`
-
+const URL = process.env.MONGODB_URL || "mongodb://localhost/google-docs-clone";
 mongoose.connect(URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
