@@ -5,10 +5,6 @@ const mongoose = require("mongoose");
 const Document = require("./Document");
 const cors = require("cors")
 
-
-const username = encodeURIComponent("vibhassinghvs");
-const password = encodeURIComponent("MyD@7@8@53");
-
 const PORT = process.env.PORT || 3001;
 
 const URL = process.env.MONGODB_URL || "mongodb://localhost/google-docs-clone";
